@@ -1,0 +1,18 @@
+[submodule "source/BOSL2"]
+	path = source/BOSL2
+	url = git@github.com:revarbat/BOSL2.git
+[submodule "source/BOSL"]
+	path = libs/BOSL
+	url = git@github.com:revarbat/BOSL.git
+[submodule "source/openscad-testjig-components"]
+	path = source/openscad-testjig-components
+	url = git@github.com:snhobbs/openscad-testjig-components.git
+[submodule "source/MCAD"]
+	path = libs/MCAD
+	url = git@github.com:openscad/MCAD.git
+[submodule "libs/openscad-utilities"]
+	path = libs/openscad-utilities
+	url = git@github.com:snhobbs/openscad-utilities.git
+[submodule "libs/openscad-testjig-components"]
+	path = libs/openscad-testjig-components
+	url = git@github.com:snhobbs/openscad-testjig-components.git

@@ -1,0 +1,8 @@
+{
+    "parameterSets": {
+        "design default values": {
+            "$fs": "0.2"
+        }
+    },
+    "fileFormatVersion": "1"
+}
