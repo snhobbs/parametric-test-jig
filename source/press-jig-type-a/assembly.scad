@@ -106,12 +106,10 @@ module pressure_plate_outline() {
 + Overhang maximizes cradle width
 + screws are as close the edge as they can be
 */
-module cradle_support_bracket_outline() {
-    margin = 25.4;
-    width=26;
+module cradle_support_bracket_outline(width=get_support_bracket_width(), cradle_curf_width=get_cradle_outline_overhang_width()) {
     case_clearance = 25.4;
+    margin = 25.4;
 
-    cradle_curf_width=get_cradle_outline_overhang_width();
     length = min([get_cradle_length()+margin*2, get_test_jig_plate_size().y-case_clearance]);
     //bracket_hole_center=(get_cradle_width()+get_fastener_field(m3_fastener, "standard clearance"))/2;
     holes = fastener_positions_to_holes(get_support_bracket_mounting_holes(), "standard clearance");

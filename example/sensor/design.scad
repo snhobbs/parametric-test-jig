@@ -17,10 +17,13 @@ function get_cradle_base_height() = 7.5;
 function get_cradle_pcb_support_height() = 5;
 function get_cradle_board_clearance_height() = 5;
 function get_cradle_height() = get_cradle_base_height() + get_cradle_pcb_support_height()-get_cradle_base_height();
-function get_cradle_outline_overhang_width() = 10;
 function get_board_gap()=[1,1];
 function get_cradle_outline_size() = [75, 100];
 function get_craddle_fastner()="M4";
+
+/* Support Bracket */
+function get_cradle_outline_overhang_width() = 25.4;
+function get_support_bracket_width() = 12.7;
 
 /* Test PCB */
 function get_test_pcb_size() = [75, 80];
