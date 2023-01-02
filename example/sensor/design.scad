@@ -22,7 +22,7 @@ function get_cradle_outline_size() = [75, 100];
 function get_craddle_fastner()="M4";
 
 /* Support Bracket */
-function get_cradle_outline_overhang_width() = 25.4;
+function get_cradle_outline_overhang_width() = 20;
 function get_support_bracket_width() = 12.7;
 
 /* Test PCB */
