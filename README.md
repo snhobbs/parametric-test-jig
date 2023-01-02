@@ -111,12 +111,12 @@ This project works with kicad-testpoints and kicad-parts-placer to pull data fro
 + Auto input of a board outline for the cradle
 
 ## References
-+ Inspired by & sections borrowed from ['OpenSCAD ATE generator'](https://github.com/5inf/TestPointReport2STL)
++ Inspired by ['OpenSCAD ATE generator'](https://github.com/5inf/TestPointReport2STL)
 + <https://www.sculpteo.com/en/tutorial/openscad-prepare-your-model-3d-printing/openscad-user-interface/>
 + <https://mastering-openscad.eu/>
-+ https://github.com/ultimachine/Test-Jig
-+ https://github.com/fossasia/pslab-test-jig
-+ https://github.com/wntrblm/Hubble
-
-
++ <https://github.com/ultimachine/Test-Jig>
++ <https://github.com/fossasia/pslab-test-jig>
++ <https://github.com/wntrblm/Hubble>
++ <https://github.com/brianredbeard/pogo-jig>
++ <https://github.com/Erhannis/PogoPinJigGen>
 
