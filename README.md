@@ -119,7 +119,7 @@ This project works with kicad-testpoints and kicad-parts-placer to pull data fro
 + <https://github.com/wntrblm/Hubble>
 + <https://github.com/brianredbeard/pogo-jig>
 + <https://github.com/Erhannis/PogoPinJigGen>
-
++ [traditional design approach videos](https://youtube.com/playlist?list=PLWx_0HhFuM-5BIxH8N3SzQfybV2INpMgL)
 
 + Similar project: <https://github.com/mdeweerd/openfixture>, <https://github.com/tinylabs/openfixture>, <https://tinylabs.io/openfixture/>
 
