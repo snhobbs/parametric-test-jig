@@ -4,12 +4,14 @@ use<cradle.scad>
 include<pressure-pins.scad>;
 include<alignment-pins.scad>
 include<probes.scad>
+function get_dir() = "/home/simon/projects/parametric-test-jig/example/sensor";
 
 /* Board Description */
 function get_board_length() = 87;
 function get_board_width() = 57;
 function get_board_size()=[get_board_width(), get_board_length()];
-function get_board_file()="/home/simon/projects/building_a_test_jig/parametric-test-jig/example/sensor/board.stl";
+function get_board_file()=str(get_dir(),"/board.stl");
+echo(get_board_file());
 
 
 /* Cradle */
@@ -19,7 +21,7 @@ function get_cradle_board_clearance_height() = 5;
 function get_cradle_height() = get_cradle_base_height() + get_cradle_pcb_support_height()-get_cradle_base_height();
 function get_board_gap()=[1,1];
 function get_cradle_outline_size() = [75, 100];
-function get_craddle_fastner()="M4";
+function get_cradle_fastner()="M4";
 
 /* Support Bracket */
 function get_cradle_outline_overhang_width() = 20;
@@ -28,7 +30,7 @@ function get_support_bracket_width() = 12.7;
 /* Test PCB */
 function get_test_pcb_size() = [75, 80];
 function get_test_pcb_mounting_holes() = make_even_mounting_holes(fastener_name="M3", size=get_test_pcb_size());
-function get_test_board_file()="/home/simon/projects/building_a_test_jig/parametric-test-jig/example/sensor/test-board-pcb.stl";
+function get_test_board_file()=str(get_dir(),"/test-board-pcb.stl");
 
 /* Base Plate */
 function get_base_plate_size() = [get_cradle_width(), get_cradle_length()];
@@ -80,7 +82,7 @@ module base_pcb() {
 };
 
 
-function get_support_bracket_mounting_holes() = let(fastener_name="M3", clearance=get_fastener_field_by_name(fastener_name, "minimal edge clearance")) make_linear_odd_mounting_holes(fastener_name=fastener_name, length=get_cradle_length(), spacing=25.4, x=-clearance);
+function get_support_bracket_mounting_holes() = let(fastener_name="M3", clearance=7) make_linear_odd_mounting_holes(fastener_name=fastener_name, length=get_cradle_length(), spacing=25.4, x=-clearance);
 
 module make_board_clearance_outline(gap, board_size) {
     length = board_size.y + gap.y;

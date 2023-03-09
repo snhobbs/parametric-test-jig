@@ -1,3 +1,18 @@
+/*
+  Version 0.1.0:
+    - First Version
+ 
+  Version 0.1.1:
+    ## Issues
+    - Support plate holes should be clearance holes if the material is not steel.
+    - Pressure plate center hole is too small
+    - Hardware mounting holes on pressure plate are incorrectly places  
+    - Support plate should have clearance holes if acrylic
+    - Base plate needs more edge clearance
+    - Use acrylic for all plates, cut from single piece
+*/
+
+
 include<design.scad>
 
 use<cradle_assembly.scad>;
@@ -32,11 +47,11 @@ screws=true;
 support=true;
 bracket_supports = true;
 pcb_assembly=true;
-cradle_clearance = 2;//get_cradle_clearance();
+cradle_clearance = 1;//get_cradle_clearance();
 
 /* [Options] */
 pcb_thickness = 1.6;
-acrylic_thickness = 3;
+acrylic_thickness = 25.4/4;
 steel_thickness = 3;
 pressure_pin_length = 20;
 
@@ -45,6 +60,7 @@ materials = [
     ["acrylic", "blue", acrylic_thickness],
     ["pcb", "green", pcb_thickness]
 ];
+
 dut_pcb_thickness = pcb_thickness;
 function get_pressure_pin_fastener() = "M3";
 
@@ -96,8 +112,6 @@ function get_pressure_pin_hole(pin) = [pin[2][0], get_pressure_pin_position(pin)
 /*  Top level modules   */
 module pressure_plate_outline() {
     fastener = get_fastener(get_pressure_pin_fastener());
-    clearance = get_fastener_field(fastener, "minimal edge clearance");
-
     pressure_pin_holes = [for(pt=get_pressure_pins()) get_pressure_pin_hole(pt)];
     make_pressure_plate_outline(holes=pressure_pin_holes);
 };
@@ -123,7 +137,7 @@ module support_plate_outline() {
 
     // FIXME get holes, put them on both side of the outline    
 
-    bracket_mounting_holes = fastener_positions_to_holes(get_support_bracket_mounting_holes(), "tap diameter");
+    bracket_mounting_holes = fastener_positions_to_holes(get_support_bracket_mounting_holes(), "standard clearance");
     
     bracket_holes = concat(
         [for (hole=bracket_mounting_holes) [hole[0], [(get_cradle_width()/2-hole[1].x), hole[1].y]]],
@@ -204,7 +218,8 @@ module pressure_plate_assembly() {
     h = 25;
     
 
-    plate_material=get_material(name="steel");
+    plate_material=get_material(name="acrylic");
+    // plate_material=get_material(name="steel");
     thickness = plate_material.z;
     pp_height = h-thickness/2;
 
@@ -269,9 +284,12 @@ module support_plate_assembly() {
     );
 
 
-    for(hole=bracket_holes)color("black")rotate(180,[1, 0, 0])translate([hole[1].x, hole[1].y, thickness])hex(d=3, hd=5.5, hl=3, l=12);    
+    for(hole=bracket_holes)color("black")rotate(180,[1, 0, 0])translate([hole[1].x, hole[1].y, thickness])hex(d=3, hd=5.5, hl=3, l=18);
 
     support_plate();
+
+    length = 18;
+    for(hole=get_support_plate_holes())color("black")rotate(180,[1, 0, 0])translate([hole[1].x, hole[1].y, 0])hex(d=4, hd=5.5, hl=3, l=length);
 };
 
 
@@ -313,7 +331,7 @@ module test_pcb_assembly() {
 
 module assembly(){
 // Pressure plate mounted to press, removed with 4 bearing screws and the plunger screw.
-if(pressure_plate) {        
+if(pressure_plate) {
 pressure_plate_assembly();
 }
 //  Cradle assembly mounts through 4x M4 screws in the corners. This is mounted to a PCB and a support plate with standoffs

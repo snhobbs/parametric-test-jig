@@ -20,12 +20,13 @@ module support_base_plate_outline() {
 };
 
 
+//  FIXME these holes are wrong
 /* Return the hole pattern for a type A press */
 function get_press_pressure_plate_holes(width=170, length=150) = let(d=2.5, x=width/2-5, y1=length/2-55, y2=length/2-35, y3=2.5) concat(
         [for(pt=make_four_corners(x, y1)) [d, pt]],
         [for(pt=make_four_corners(x, y2)) [d, pt]],
         [for(pt=make_four_corners(x, y3)) [d, pt]],
-        [[11, [0,0]]] //  # M10
+        [[13, [0,0]]] //  # M12
     );
 
 

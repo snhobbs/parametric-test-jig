@@ -50,9 +50,9 @@ TODO
 ## Reuse
 + Sections that are to be reused need to have the data pertaining to them broken off to a standalone module.
 + Tool sets can be used but should be minimized to describe the part as simply and in as stand alone manner as possible.
-+ Would like more interchangable parts so the craddle should be the same size if possible
++ Would like more interchangable parts so the cradle should be the same size if possible
 
-+ If the craddle size is the same for different boards then only the craddle needs to be replaced
++ If the cradle size is the same for different boards then only the cradle needs to be replaced
 
 
 + Pressure pins are mirrored relative to board position like the probes
@@ -65,7 +65,7 @@ TODO
 
 + Standard libraries are added to the OPENSCADPATH, these are submoduled
 + Add a shell script with the OPENSCADPATH that can be sourced
-+ soft link or copy the assembly and craddle_assembly files
++ soft link or copy the assembly and cradle_assembly files
 + Set the construction type with the OPENSCADPATH
 
 

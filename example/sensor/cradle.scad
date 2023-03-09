@@ -21,7 +21,7 @@ function get_cradle_width() = get_cradle_outline_size().x;
 function get_cradle_length() = get_cradle_outline_size().y;
 
 function get_cradle_mounting_holes() = make_even_mounting_holes(
-    fastener_name=get_craddle_fastner(),
+    fastener_name=get_cradle_fastner(),
     size=get_cradle_outline_size());
 
 
@@ -88,7 +88,9 @@ module make_cradle(probes, pins, base_height, board_clearance_height, board_supp
             translate(get_probe_position(probe))
             socket_hole(socket=get_probe_socket(probe));
         };
+
+        cradle_holes = fastener_positions_to_holes(get_cradle_mounting_holes(), "wide clearance");
+
         for(hole=get_cradle_mounting_holes())make_mounting_hole(hole);
     }
 };
-

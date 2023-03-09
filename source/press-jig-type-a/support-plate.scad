@@ -1,5 +1,10 @@
 use<press-jig-type-a/test-jig-press-type-a.scad>;
 
+/* 
+  Requires:
+            support_base_plate_outline
+
+*/
 module make_support_plate_outline(hole_size, holes=[]) {
     difference() {
         difference(){
